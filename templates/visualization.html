@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization - BRICS GHG Emissions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v2.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+</head>
+<body>
+    <nav id="main-nav">
+        <div class="logo">BRICS Emissions</div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('visualization') }}" class="active">Data Visualization</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>BRICS Greenhouse Gas Emissions (1990-2018)</h1>
+            <p>Exploring how emissions have evolved in the world's major emerging economies</p>
+        </header>
+
+        <!-- Timeline section will be fixed at the top, now more compact -->
+        <section id="timeline-control">
+            <h2>Timeline</h2>
+            <div class="year-slider-container">
+                <div id="year-display">2018</div>
+                <input type="range" min="1990" max="2018" value="2018" id="year-slider">
+            </div>
+            <div id="timeline-events"></div>
+        </section>
+
+        <section id="map-section">
+            <h2>Global View</h2>
+            <div id="map-container"></div>
+        </section>
+
+        <section id="emissions-trends">
+            <h2>Historical Emissions</h2>
+            <div class="visualization-controls">
+                <button class="active" id="total-emissions">Total Emissions</button>
+                <button id="per-capita">Per Capita</button>
+            </div>
+            <div id="line-chart"></div>
+        </section>
+
+        <section id="sector-breakdown">
+            <h2>Sector Breakdown</h2>
+            <div class="country-selector">
+                <label for="country-select">Select Country:</label>
+                <select id="country-select">
+                    <option value="Brazil">Brazil</option>
+                    <option value="Russia">Russia</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                    <option value="South Africa">South Africa</option>
+                </select>
+            </div>
+            <div id="stacked-bar"></div>
+        </section>
+
+        <section id="story-narrative">
+            <h2>The BRICS Emissions Story</h2>
+            <p id="narrative-text">
+                The BRICS countries represent the world's major emerging economies. Together, they account for over 40% of the global population and have been responsible for a significant portion of global economic growth in recent decades.
+            </p>
+            <div id="key-insights"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Data Visualization & Development</p>
+    </footer>
+
+    <!-- Use type="module" and absolute path -->
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

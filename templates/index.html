@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICS GHG Emissions Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v2.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+</head>
+<body>
+    <nav id="main-nav">
+        <div class="logo">BRICS Emissions</div>
+        <ul>
+            <li><a href="{{ url_for('index') }}" class="active">Home</a></li>
+            <li><a href="{{ url_for('visualization') }}">Data Visualization</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="hero">
+            <h1>BRICS Greenhouse Gas Emissions (1990-2018)</h1>
+            <p>Exploring how emissions have evolved in the world's major emerging economies</p>
+            <a href="{{ url_for('visualization') }}" class="cta-button">Explore the Data</a>
+        </header>
+        
+        <section id="intro">
+            <h2>Project Overview</h2>
+            <p>The BRICS countries—Brazil, Russia, India, China, and South Africa—represent the world's major emerging economies. Together, they account for over 40% of the global population and have been responsible for a significant portion of global economic growth in recent decades.</p>
+            <p>This interactive visualization explores greenhouse gas emissions data from these nations over nearly three decades, revealing patterns of industrialization, economic development, and climate impact.</p>
+        </section>
+        
+        <section id="features">
+            <h2>Key Features</h2>
+            <div class="feature-cards">
+                <div class="card">
+                    <h3>Interactive Timeline</h3>
+                    <p>Track emissions changes over time and see key historical events that influenced climate policies.</p>
+                </div>
+                <div class="card">
+                    <h3>Country Comparisons</h3>
+                    <p>Compare emissions across BRICS nations to understand different development trajectories.</p>
+                </div>
+                <div class="card">
+                    <h3>Sector Analysis</h3>
+                    <p>Dive into the breakdown of emissions by sector to identify key contributors in each country.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2023 Data Visualization & Development</p>
+    </footer>
+</body>
+</html>
